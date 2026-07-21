@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Add server{% endblock %}
+{% block content %}
+<div class="page-heading"><p class="eyebrow">INVENTORY</p><h1>Add a server</h1><p class="text-muted">Register a simulated infrastructure asset for monitoring.</p></div>
+<div class="form-card"><form method="post">{% include "_server_form.html" %}<div class="mt-4 d-flex gap-2"><button class="btn btn-primary" type="submit">Add server</button><a class="btn btn-light" href="{{ url_for('servers.list_servers') }}">Cancel</a></div></form></div>
+{% endblock %}

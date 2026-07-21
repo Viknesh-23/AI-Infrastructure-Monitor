@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<div class="page-heading"><p class="eyebrow">PREFERENCES</p><h1>Workspace settings</h1><p class="text-muted">Personalize how you use the monitoring console.</p></div>
+<div class="form-card"><h2>Appearance</h2><p class="text-muted">Your color preference is stored locally in this browser and applies across the application.</p><button class="btn btn-outline-primary" id="settingsThemeToggle"><i class="bi bi-moon-stars"></i> Toggle light / dark mode</button><hr><h2>Incident threshold</h2><p class="text-muted mb-0">The automatic incident risk threshold is configured by the <code>INCIDENT_RISK_THRESHOLD</code> environment variable. The current deployment threshold is {{ incident_threshold }}%.</p></div>
+{% endblock %}

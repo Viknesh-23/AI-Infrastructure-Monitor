@@ -1,0 +1,8 @@
+<div class="row g-3">
+  <div class="col-md-6"><label class="form-label">Server ID</label><input class="form-control" name="server_code" required maxlength="40" value="{{ values.get('server_code', '') }}" placeholder="SRV-001"></div>
+  <div class="col-md-6"><label class="form-label">Server name</label><input class="form-control" name="name" required maxlength="120" value="{{ values.get('name', '') }}" placeholder="Production API Server"></div>
+  <div class="col-md-6"><label class="form-label">IP address</label><input class="form-control" name="ip_address" required maxlength="45" value="{{ values.get('ip_address', '') }}" placeholder="192.168.1.10"></div>
+  <div class="col-md-6"><label class="form-label">Operating system</label><input class="form-control" name="os" required maxlength="100" value="{{ values.get('os', values.get('operating_system', '')) }}" placeholder="Ubuntu 22.04 LTS"></div>
+  <div class="col-md-6"><label class="form-label">Environment</label><select class="form-select" name="environment">{% for option in ['Development', 'Testing', 'Production'] %}<option {{ 'selected' if values.get('environment', 'Development') == option }}>{{ option }}</option>{% endfor %}</select></div>
+  <div class="col-md-6"><label class="form-label">Initial status</label><select class="form-select" name="status">{% for option in ['Healthy', 'Warning', 'Critical', 'Offline'] %}<option {{ 'selected' if values.get('status', 'Healthy') == option }}>{{ option }}</option>{% endfor %}</select></div>
+</div>

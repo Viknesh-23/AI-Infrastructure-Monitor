@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Create account{% endblock %}
+{% block auth_content %}
+<div class="auth-page"><div class="auth-card shadow-lg">
+  <a class="auth-brand" href="{{ url_for('auth.login') }}"><i class="bi bi-cpu-fill"></i> Infra<span>Sight</span></a>
+  <p class="text-muted mb-4">Create your monitoring workspace.</p>
+  <form method="post" novalidate>
+    <label class="form-label">Username</label><input class="form-control mb-3" name="username" required maxlength="100" placeholder="Your username">
+    <label class="form-label">Email address</label><input class="form-control mb-3" type="email" name="email" required placeholder="you@example.com">
+    <label class="form-label">Password</label><input class="form-control mb-3" type="password" name="password" required minlength="8" placeholder="At least 8 characters">
+    <label class="form-label">Confirm password</label><input class="form-control mb-4" type="password" name="confirm_password" required placeholder="Repeat your password">
+    <button class="btn btn-primary w-100 py-2" type="submit">Create account</button>
+  </form>
+  <p class="text-center small text-muted mt-4 mb-0">Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a></p>
+</div></div>
+{% endblock %}

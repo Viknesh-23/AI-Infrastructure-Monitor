@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ai-infrastructure-monitoring
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    preDeployCommand: flask --app app init-db
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: infrastructure-monitoring-db
+          property: connectionString
+databases:
+  - name: infrastructure-monitoring-db
+    plan: free

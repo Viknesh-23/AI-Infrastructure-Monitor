@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block auth_content %}
+<div class="auth-page"><div class="auth-card shadow-lg">
+  <a class="auth-brand" href="{{ url_for('auth.login') }}"><i class="bi bi-cpu-fill"></i> Infra<span>Sight</span></a>
+  <p class="text-muted mb-4">Sign in to your monitoring console.</p>
+  <form method="post" novalidate>
+    <label class="form-label">Email address or username</label><input class="form-control mb-3" name="identifier" required autofocus placeholder="you@example.com or admin">
+    <label class="form-label">Password</label><input class="form-control mb-3" type="password" name="password" required placeholder="Your password">
+    <div class="form-check mb-4"><input class="form-check-input" type="checkbox" name="remember" id="remember"><label class="form-check-label small" for="remember">Keep me signed in</label></div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Sign in <i class="bi bi-arrow-right ms-1"></i></button>
+  </form>
+  <p class="text-center small text-muted mt-4 mb-0">New here? <a href="{{ url_for('auth.register') }}">Create an account</a></p>
+</div></div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ server.name }}{% endblock %}
+{% block content %}
+<div class="page-heading"><p class="eyebrow">INVENTORY</p><h1>Edit server</h1><p class="text-muted">Update configuration for {{ server.name }}.</p></div>
+<div class="form-card"><form method="post">{% include "_server_form.html" %}<div class="mt-4 d-flex gap-2"><button class="btn btn-primary" type="submit">Save changes</button><a class="btn btn-light" href="{{ url_for('servers.server_detail', server_id=server.id) }}">Cancel</a></div></form></div>
+{% endblock %}

@@ -1,0 +1,75 @@
+# AI-Powered Predictive IT Infrastructure Monitoring
+
+A Flask application for simulating server telemetry, detecting anomalous behaviour with Isolation Forest, estimating failure risk, and managing AI-assisted incidents. It works fully offline: Gemini analysis automatically falls back to clear rule-based diagnostics when an API key or network connection is unavailable.
+
+## Features
+
+- Account registration and session-based authentication.
+- Server inventory with development, testing, and production environments.
+- Normal and failure telemetry simulation through HTML and JSON API endpoints.
+- Isolation Forest detection after sufficient history, with threshold rules for cold starts.
+- Explainable 0–100% failure-risk scoring and automatic severity classification.
+- Deduplicated active incidents, alerts, investigation workflow, and healthy-state reset on resolution.
+- Gemini 2.5 Flash root-cause analysis with a dependable local fallback.
+- Responsive Bootstrap dashboard, persisted light/dark mode, and Chart.js trend/analytics views.
+- SQLite for local use and PostgreSQL through `DATABASE_URL` for Render.
+
+## Local setup
+
+1. Create and activate a virtual environment.
+
+   ```powershell
+   py -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
+
+2. Install dependencies and create local configuration.
+
+   ```powershell
+   pip install -r requirements.txt
+   Copy-Item .env.example .env
+   ```
+
+3. Seed the demonstration workspace, then start Flask.
+
+   ```powershell
+   python scripts/seed_data.py
+   flask --app app run --debug
+   ```
+
+Open `http://127.0.0.1:5000` and sign in with `admin` / `admin123`. Change this demonstration password before using the application outside a local demo.
+
+To initialise an empty database instead, run `flask --app app init-db`.
+
+## Configuration
+
+| Variable | Purpose |
+| --- | --- |
+| `SECRET_KEY` | Long, random application session secret. |
+| `DATABASE_URL` | SQLite URL locally or a PostgreSQL connection URL in deployment. Legacy `postgres://` URLs are converted automatically. |
+| `GEMINI_API_KEY` | Optional Google Gemini key. Without it the application uses the local fallback. |
+| `INCIDENT_RISK_THRESHOLD` | Minimum risk percentage for incident creation (default `65`). |
+| `MAX_METRICS_PER_SERVER` | Recent samples retained per server (default `500`). |
+| `SESSION_COOKIE_SECURE` | Set `true` behind HTTPS, such as Render. |
+
+## JSON monitoring API
+
+Authenticated browser sessions can use these endpoints (the UI calls them with Fetch):
+
+| Method | Endpoint | Action |
+| --- | --- | --- |
+| `POST` | `/monitoring/api/server/<server_id>/metrics` | Generate a normal telemetry sample. |
+| `POST` | `/monitoring/api/server/<server_id>/simulate-failure` | Generate a high-risk failure sample. |
+| `GET` | `/monitoring/api/server/<server_id>/history` | Return the recent chart history. |
+
+Each generation response includes the scored metric, updated server status, and any active incident.
+
+## Deployment on Render
+
+The included `render.yaml` provisions a web service and PostgreSQL database. Push the repository to a Git provider, create a Render Blueprint from that file, then add `GEMINI_API_KEY` if AI analysis is desired. Render starts the service with:
+
+```text
+gunicorn app:app
+```
+
+`preDeployCommand` creates database tables. Seed data is intentionally not loaded in deployment.
