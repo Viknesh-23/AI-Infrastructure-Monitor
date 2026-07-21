@@ -1,5 +1,9 @@
 # AI-Powered Predictive IT Infrastructure Monitoring
 
+🌐 Live Demo: https://ai-infrastructure-monitor.onrender.com
+
+📂 Source Code: https://github.com/Viknesh-23/AI-Infrastructure-Monitor
+
 A Flask application for simulating server telemetry, detecting anomalous behaviour with Isolation Forest, estimating failure risk, and managing AI-assisted incidents. It works fully offline: Gemini analysis automatically falls back to clear rule-based diagnostics when an API key or network connection is unavailable.
 
 ## Features
