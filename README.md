@@ -6,6 +6,23 @@
 
 A Flask application for simulating server telemetry, detecting anomalous behaviour with Isolation Forest, estimating failure risk, and managing AI-assisted incidents. It works fully offline: Gemini analysis automatically falls back to clear rule-based diagnostics when an API key or network connection is unavailable.
 
+## Screenshots
+
+### Dashboard
+![Dashboard](dashboard.png)
+
+### Server Failure Prediction
+![Server Details](server-details.png)
+
+### Live Monitoring
+![Live Monitoring](monitoring.png)
+
+### Incident Management
+![Incident Management](incidents.png)
+
+### Infrastructure Analytics
+![Analytics](analytics.png)
+
 ## Features
 
 - Account registration and session-based authentication.
