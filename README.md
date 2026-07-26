@@ -110,7 +110,7 @@ AI-Infrastructure-Monitor/
    flask --app app run --debug
    ```
 
-Open `http://127.0.0.1:5000` and sign in with `admin` / `admin123`. Change this demonstration password before using the application outside a local demo.
+Open `http://127.0.0.1:5000` in your browser. Create an account or use your configured administrator credentials to access the dashboard.
 
 To initialise an empty database instead, run `flask --app app init-db`.
 
