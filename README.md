@@ -71,6 +71,20 @@ A Flask application for simulating server telemetry, detecting anomalous behavio
 6. **Monitoring Dashboard**
    - Administrators can view server health, risk scores, incidents, historical metrics, and analytics from the dashboard.
 
+## Project Structure
+
+AI-Infrastructure-Monitor/
+├── models/          # Database models
+├── routes/          # Flask routes and API endpoints
+├── services/        # ML and AI services
+├── scripts/         # Database/data utility scripts
+├── static/          # CSS and JavaScript files
+├── templates/       # HTML templates
+├── app.py           # Main Flask application
+├── config.py        # Application configuration
+├── render.yaml      # Render deployment configuration
+└── requirements.txt # Python dependencies
+
 ## Local setup
 
 1. Create and activate a virtual environment.
