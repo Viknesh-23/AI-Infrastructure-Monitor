@@ -23,6 +23,21 @@ A Flask application for simulating server telemetry, detecting anomalous behavio
 ### Infrastructure Analytics
 ![Analytics](analytics.png)
 
+## Tech Stack
+
+- Python
+- Flask
+- SQLAlchemy
+- PostgreSQL
+- Scikit-learn
+- Isolation Forest
+- Google Gemini API
+- Bootstrap 5
+- Chart.js
+- HTML, CSS & JavaScript
+- Render
+- Git & GitHub
+
 ## Features
 
 - Account registration and session-based authentication.
