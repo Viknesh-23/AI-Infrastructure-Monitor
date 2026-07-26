@@ -73,6 +73,7 @@ A Flask application for simulating server telemetry, detecting anomalous behavio
 
 ## Project Structure
 
+```text
 AI-Infrastructure-Monitor/
 ├── models/          # Database models
 ├── routes/          # Flask routes and API endpoints
@@ -84,6 +85,7 @@ AI-Infrastructure-Monitor/
 ├── config.py        # Application configuration
 ├── render.yaml      # Render deployment configuration
 └── requirements.txt # Python dependencies
+```
 
 ## Local setup
 
