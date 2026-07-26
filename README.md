@@ -50,6 +50,27 @@ A Flask application for simulating server telemetry, detecting anomalous behavio
 - Responsive Bootstrap dashboard, persisted light/dark mode, and Chart.js trend/analytics views.
 - SQLite for local use and PostgreSQL through `DATABASE_URL` for Render.
 
+## How It Works
+
+1. **Server Monitoring**
+   - Collects CPU, memory, disk, and other server metrics.
+
+2. **Anomaly Detection**
+   - Isolation Forest analyzes the metrics and identifies abnormal server behaviour.
+
+3. **Failure Risk Prediction**
+   - The system calculates a failure risk score from 0–100%.
+
+4. **Automatic Incident Creation**
+   - When the risk exceeds the configured threshold, an incident is automatically created.
+
+5. **AI Root Cause Analysis**
+   - Google Gemini analyzes the incident and provides possible causes and recommended actions.
+   - A local rule-based fallback is used when Gemini is unavailable.
+
+6. **Monitoring Dashboard**
+   - Administrators can view server health, risk scores, incidents, historical metrics, and analytics from the dashboard.
+
 ## Local setup
 
 1. Create and activate a virtual environment.
