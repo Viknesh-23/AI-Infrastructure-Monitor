@@ -111,7 +111,6 @@ AI-Infrastructure-Monitor/
    ```
 
 Open `http://127.0.0.1:5000` in your browser. Create an account or use your configured administrator credentials to access the dashboard.
-
 To initialise an empty database instead, run `flask --app app init-db`.
 
 ## Configuration
